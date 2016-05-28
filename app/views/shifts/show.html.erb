@@ -1,2 +1,4 @@
-<h1>Shifts#show</h1>
-<p>Find me in app/views/shifts/show.html.erb</p>
+<%= link_to "Back to all shifts", shifts_path %><br/>
+
+<h2>(<%= link_to "edit", edit_shift_path(@shift) %>, <%= link_to "delete", shift_path(@shift), method: :delete, data: {confirm: "You sure?"} %>)</h2>
+<p><%= @shift.notes %></p>

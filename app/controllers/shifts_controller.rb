@@ -39,12 +39,11 @@ class ShiftsController < ApplicationController
     @shift = Shift.find(params[:id])
     @shift.destroy
     redirect_to shifts_path
+  end
 
   protected
 
   def shift_params
-    params.require(:shift)permit(
-      :start_date, :day_shift, :notes
-    )
+    params.require(:shift).permit(:start_date, :day_shift, :notes)
   end
 end

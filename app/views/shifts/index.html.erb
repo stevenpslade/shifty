@@ -1,2 +1,14 @@
-<h1>Shifts#index</h1>
-<p>Find me in app/views/shifts/index.html.erb</p>
+<h1>Shifty</h1>
+<%= link_to "Add a shift!", new_shift_path %>
+<hr>
+<% @shifts.each do |shift| %>
+  <%= link_to "Shift", shift_path(shift) %>
+  <p><%= shift.start_date %></p>
+  <% if shift.day_shift %>
+    <p>Day</p>
+  <% else %>
+    <p>Night</p>
+  <% end %>
+  <p><%= shift.notes %></p>
+  <hr>
+<% end %>
