@@ -1,0 +1,31 @@
+<%= form_for @shift do |f| %>
+  <% if @shift.errors.any? %>
+    <div>
+      <%= pluralize(@shift.errors.count, "error") %> prevented this shift from being submitted:
+      <ul>
+        <% @shift.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :start_date %><br>
+    <%= f.date_field :start_date %>
+  </div>
+  <div>
+    <%= f.label(:day_shift, "Day Shift") %>
+    <%= f.radio_button :day_shift, true %>
+  </div>
+  <div>
+    <%= f.label(:day_shift, "Night Shift") %>
+    <%= f.radio_button :day_shift, false %>
+  </div>
+  <div>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %> 
+  </div>
+<% end %>

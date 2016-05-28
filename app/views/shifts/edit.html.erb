@@ -1,24 +1,4 @@
 <%= link_to "Back to this shifs", shifts_path(@shift) %>
 
 <h2>Edit a shift!</h2>
-<%= form_for @shift do |f| %>
-  <div>
-    <%= f.label :start_date %><br>
-    <%= f.date_field :start_date %>
-  </div>
-  <div>
-    <%= f.label(:day_shift, "Day Shift") %>
-    <%= f.radio_button :day_shift, true %>
-  </div>
-  <div>
-    <%= f.label(:day_shift, "Night Shift") %>
-    <%= f.radio_button :day_shift, false %>
-  </div>
-  <div>
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
-  </div>
-  <div>
-    <%= f.submit "Submit" %> 
-  </div>
-<% end %>
+<%= render 'form' %>
