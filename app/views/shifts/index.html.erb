@@ -1,4 +1,18 @@
 <h1>Shifty</h1>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+
+<% if current_user %>
+  <%= image_tag current_user.image_url, alt: current_user.name %>
+  <%= link_to 'Log Out', logout_path, method: :delete %>
+<% else %>
+  <%= link_to 'Facebook', '/auth/facebook' %>
+<% end %>
+
 <%= link_to "Add a shift!", new_shift_path %>
 <hr>
 <% @shifts.each do |shift| %>
