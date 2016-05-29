@@ -3,7 +3,7 @@
 <hr>
 <% @shifts.each do |shift| %>
   <%= link_to "Shift", shift_path(shift) %>
-  <p><%= shift.start_date %></p>
+  <p><%= formatted_date(shift.start_date) %></p>
   <% if shift.day_shift %>
     <p>Day</p>
   <% else %>
