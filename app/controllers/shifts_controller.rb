@@ -1,4 +1,6 @@
 class ShiftsController < ApplicationController
+  before_filter :restrict_access, :except => [:index, :show]
+
   def index
     @shifts = Shift.all
   end

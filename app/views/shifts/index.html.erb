@@ -8,7 +8,7 @@
 
 <% if current_user %>
   <%= image_tag current_user.image_url, alt: current_user.name %>
-  <%= link_to 'Log Out', logout_path, method: :delete %>
+  <%= link_to 'Log Out', '#', id: 'logout' %>
 <% else %>
   <%= link_to 'Facebook', '/auth/facebook' %>
 <% end %>

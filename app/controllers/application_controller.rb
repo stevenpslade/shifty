@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   private 
 
+  def restrict_access
+    if !current_user
+      flash[:alert] = "You must log in."
+      redirect_to root_path
+    end
+  end
+
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end

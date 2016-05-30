@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+  $('a#logout').click(function(e) {
+    e.preventDefault();
+    FB.logout();
+    location.href = "/logout";
+  });
+});
