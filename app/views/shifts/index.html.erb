@@ -16,7 +16,8 @@
 <%= link_to "Add a shift!", new_shift_path %>
 <hr>
 <% @shifts.each do |shift| %>
-  <%= link_to "Shift", shift_path(shift) %>
+  <p><%= link_to "Shift", shift_path(shift) %></p>
+  <%= image_tag shift.user.image_url, alt: shift.user.name %>
   <p><%= formatted_date(shift.start_date) %></p>
   <% if shift.day_shift %>
     <p>Day</p>
