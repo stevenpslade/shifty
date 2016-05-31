@@ -1,5 +1,6 @@
 class ShiftsController < ApplicationController
-  before_filter :restrict_access, :except => [:index, :show]
+  before_filter :restrict_access, except: [:index, :show]
+  before_filter :require_permission, only: [:edit, :destroy]
 
   def index
     @shifts = Shift.all
@@ -48,4 +49,12 @@ class ShiftsController < ApplicationController
   def shift_params
     params.require(:shift).permit(:start_date, :day_shift, :notes)
   end
+
+  def require_permission
+    if current_user.id != Shift.find(params[:id]).user_id
+      flash[:alert] = "That's not yours!"
+      redirect_to root_path
+    end
+  end
+
 end
