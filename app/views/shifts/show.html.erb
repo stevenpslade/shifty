@@ -1,4 +1,13 @@
 <%= link_to "Back to all shifts", shifts_path %><br/>
 
 <h2>(<%= link_to "edit", edit_shift_path(@shift) %>, <%= link_to "delete", shift_path(@shift), method: :delete, data: {confirm: "You sure?"} %>)</h2>
+
+<h1><%= @shift.user.name %></h1>
+<%= image_tag @shift.user.image_url, alt: @shift.user.name %>
+<p><%= formatted_date(@shift.start_date) %></p>
+<% if @shift.day_shift %>
+  <p>Day</p>
+<% else %>
+  <p>Night</p>
+<% end %>
 <p><%= @shift.notes %></p>
