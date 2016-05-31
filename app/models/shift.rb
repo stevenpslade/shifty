@@ -1,7 +1,6 @@
 class Shift < ActiveRecord::Base
   belongs_to :user
 
-  validates :user, presence: true
   validates :start_date, presence: true
   validates :day_shift, :inclusion => {:in => [true, false]}
   validate :start_date_is_future
