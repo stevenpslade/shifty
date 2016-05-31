@@ -20,6 +20,7 @@ class ShiftsController < ApplicationController
 
   def create
     @shift = Shift.new(shift_params)
+    @shift.user_id = current_user.id
 
     if @shift.save
       redirect_to shifts_path
