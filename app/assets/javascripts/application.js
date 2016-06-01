@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery-ui/datepicker
 //= require turbolinks
+//= require tether
 //= require bootstrap-sprockets
 //= require_tree .
 $(function() {
@@ -37,5 +38,7 @@ $(function() {
   //using jquery to add css to calendar if shift is night or day
   $('li.night').closest('td').addClass("night-shift");
   $('li.day').closest('td').addClass("day-shift");
+
+  $('[data-toggle="tooltip"]').tooltip();
 
 });

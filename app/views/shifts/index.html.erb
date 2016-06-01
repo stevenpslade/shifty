@@ -1,39 +1,37 @@
-<div class="container-fluid">
-  <h1>Shifty</h1>
+<h1>Shifty</h1>
 
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-      <%= value %>
-    </div>
-  <% end %>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
 
-  <% if current_user %>
-    <%= image_tag current_user.image_url, alt: current_user.name %>
-    <%= link_to 'Log Out', '#', id: 'logout' %>
-  <% else %>
-    <%= link_to 'Facebook', '/auth/facebook' %>
-  <% end %>
+<% if current_user %>
+  <%= image_tag current_user.image_url, alt: current_user.name %>
+  <%= link_to 'Log Out', '#', id: 'logout' %>
+<% else %>
+  <%= link_to 'Facebook', '/auth/facebook' %>
+<% end %>
 
-  <%= link_to "Add a shift!", new_shift_path %>
+<%= link_to "Add a shift!", new_shift_path %>
 
-  <h2>
-    <%= link_to "<", date: @date.prev_month %>
-      <%= @date.strftime("%B %Y")%>
-    <%= link_to ">", date: @date.next_month %>
-  </h2>
-  <%= calendar @date do |date| %>
-    <%= date.day %>
-    <% if @shifts_by_date[date] %>
-      <ul>
-        <% @shifts_by_date[date].each do |shift| %>
-          <li class="<%= shift.day_shift ? 'day' : 'night' %>">
-            <%= link_to image_tag(shift.user.image_url, alt: shift.user.name), shift_path(shift) %>
-          </li>
-          <% if shift.pending %>
-            <i class="fa fa-question-circle" aria-hidden="true"></i>
-          <% end %>
+<h2>
+  <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y")%>
+  <%= link_to ">", date: @date.next_month %>
+</h2>
+<%= calendar @date do |date| %>
+  <%= date.day %>
+  <% if @shifts_by_date[date] %>
+    <ul>
+      <% @shifts_by_date[date].each do |shift| %>
+        <li class="<%= shift.day_shift ? 'day' : 'night' %>">
+          <%= link_to image_tag(shift.user.image_url, alt: shift.user.name), shift_path(shift) %>
+        </li>
+        <% if shift.pending %>
+          <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Pending"></i>
         <% end %>
-      </ul>
-    <% end%>
-  <% end %>
-</div>
+      <% end %>
+    </ul>
+  <% end%>
+<% end %>
