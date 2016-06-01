@@ -1,6 +1,10 @@
 // Place all the styles related to the shifts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$day-color: #F5D76E;
+$night-color: #BE90D4;
+
 .calendar {
   border-collapse: collapse;
   width: 100%;
@@ -29,6 +33,8 @@
 
   .notmonth, .notmonth a { color: #CCC; }
   .today { background-color: #D7F2FF; }
+  .day-shift { background-color: $day-color }
+  .night-shift { background-color: fade_out($night-color, 0.25) }
 }
 
 #month {
