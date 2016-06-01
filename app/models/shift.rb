@@ -2,8 +2,9 @@ class Shift < ActiveRecord::Base
   belongs_to :user
 
   validates :start_date, presence: true
-  validates :day_shift, :inclusion => {:in => [true, false]}
   validate :start_date_is_future
+  validates :day_shift, :inclusion => {:in => [true, false], message: "or Night Shift must be specified."}
+  validates :pending, presence: true
 
   protected
 

@@ -50,7 +50,7 @@ class ShiftsController < ApplicationController
   protected
 
   def shift_params
-    params.require(:shift).permit(:start_date, :day_shift, :notes)
+    params.require(:shift).permit(:start_date, :day_shift, :notes, :pending)
   end
 
   def require_permission

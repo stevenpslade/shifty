@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601042954) do
+ActiveRecord::Schema.define(version: 20160601063247) do
 
   create_table "shifts", force: :cascade do |t|
     t.date     "start_date"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160601042954) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.boolean  "pending"
   end
 
   add_index "shifts", ["user_id"], name: "index_shifts_on_user_id"
