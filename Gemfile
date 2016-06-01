@@ -49,6 +49,8 @@ group :development do
 
   gem 'bootstrap-sass'
 
+  gem 'font-awesome-rails'
+
   gem 'omniauth-facebook'
 
   gem 'awesome_print', '~> 1.6', '>= 1.6.1'

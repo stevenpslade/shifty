@@ -29,6 +29,9 @@
           <li class="<%= shift.day_shift ? 'day' : 'night' %>">
             <%= link_to image_tag(shift.user.image_url, alt: shift.user.name), shift_path(shift) %>
           </li>
+          <% if shift.pending %>
+            <i class="fa fa-question-circle" aria-hidden="true"></i>
+          <% end %>
         <% end %>
       </ul>
     <% end%>
