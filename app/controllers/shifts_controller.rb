@@ -4,6 +4,8 @@ class ShiftsController < ApplicationController
 
   def index
     @shifts = Shift.all
+    @shifts_by_date = @shifts.group_by(&:start_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def show
@@ -33,7 +35,7 @@ class ShiftsController < ApplicationController
     @shift = Shift.find(params[:id])
 
     if @shift.update_attributes(shift_params)
-      redirect_to shifts_path(@shift)
+      redirect_to shift_path(@shift)
     else
       render :edit
     end

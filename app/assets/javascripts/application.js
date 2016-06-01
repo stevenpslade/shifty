@@ -11,15 +11,22 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-
 $(function() {
+
   $('a#logout').click(function(e) {
     e.preventDefault();
     FB.logout();
     location.href = "/logout";
   });
+
+  $('#shift_start_date').datepicker({
+    dateFormat: "yy-mm-dd"
+  });
+
 });
