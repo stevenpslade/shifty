@@ -10,8 +10,8 @@
     </div>
   <% end %>
   <div>
-    <%= f.label(:pending, "Is this a possible swap or pick-up?") %><br>
-    <%= f.select :pending, [['Yes', true],['No',false]], :include_blank => true %>
+    <%= f.label(:pending, "Is this shift pending confirmation?") %><br>
+    <%= f.select :pending, [['Yes', true],['No', false]], :selected => false %>
   </div>
   <div>
     <%= f.label :start_date %><br>

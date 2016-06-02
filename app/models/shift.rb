@@ -4,7 +4,7 @@ class Shift < ActiveRecord::Base
   validates :start_date, presence: true
   validate :start_date_is_future
   validates :day_shift, :inclusion => {:in => [true, false], message: "or Night Shift must be specified."}
-  validates :pending, presence: true
+  validates :pending, :inclusion => {:in => [true, false]}
 
   protected
 
