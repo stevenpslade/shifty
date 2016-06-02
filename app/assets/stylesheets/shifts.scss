@@ -4,10 +4,44 @@
 
 $day-color: #F5D76E;
 $night-color: #BE90D4;
+$primary-color: #E00;
 
 @mixin size($width, $height) {
     width: $width;
     height: $height;
+}
+
+@mixin main-font {
+    font-family: Quicksand;
+    font-weight: 700;
+    color: $primary-color;
+}
+
+
+.navbar {
+  border: .2rem solid $primary-color;
+
+  .logo {
+    @include main-font;
+  }
+
+  .avatar-image {
+    border-radius: 50%;
+    border: 3px solid $primary-color;
+  }
+
+  .logged-out-avatar {
+    font-size: 2rem;
+
+    .fa-circle-thin {
+      color: $primary-color;
+    }
+
+    .fa-user-md {
+      color: #858688;
+    }
+  }
+
 }
 
 .calendar {

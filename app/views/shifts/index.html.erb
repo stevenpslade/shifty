@@ -1,19 +1,32 @@
-<h1>Shifty</h1>
+<nav class="navbar">
+  <a class="navbar-brand" href="/">
+    <h1 class="logo"><i class="fa fa-plus" aria-hidden="true"></i>Shifty</h1>
+  </a>
+    <div class="dropdown pull-right">
+  <% if current_user %>
+      <%= image_tag current_user.image_url, id:"dropdownMenu1", class:"avatar-image dropdown-toggle", data: {toggle: "dropdown"}, alt: current_user.name %>
+  <% else %>
+    <span class="logged-out-avatar fa-stack fa-lg" id="dropdownMenu1" data-toggle="dropdown">
+      <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+      <i class="fa fa-user-md fa-stack-1x" aria-hidden="true"></i>
+    </span>
+  <% end %>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <% if current_user %>
+        <%= link_to 'Add a shift!', new_shift_path, class: 'dropdown-item' %>
+        <%= link_to 'Log Out', '#', id: 'logout', class: 'dropdown-item' %>
+      <% else %>
+        <%= link_to 'Enter with Facebook', '/auth/facebook', class: 'dropdown-item' %>
+      <% end %>
+      </div>
+    </div>
+</nav>
 
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>">
     <%= value %>
   </div>
 <% end %>
-
-<% if current_user %>
-  <%= image_tag current_user.image_url, class:"avatar-image", alt: current_user.name %>
-  <%= link_to 'Log Out', '#', id: 'logout' %>
-<% else %>
-  <%= link_to 'Facebook', '/auth/facebook' %>
-<% end %>
-
-<%= link_to "Add a shift!", new_shift_path %>
 
 <h2>
   <%= link_to "<", date: @date.prev_month %>
