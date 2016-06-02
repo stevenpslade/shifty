@@ -7,7 +7,7 @@
 <% end %>
 
 <% if current_user %>
-  <%= image_tag current_user.image_url, alt: current_user.name %>
+  <%= image_tag current_user.image_url, class:"avatar-image", alt: current_user.name %>
   <%= link_to 'Log Out', '#', id: 'logout' %>
 <% else %>
   <%= link_to 'Facebook', '/auth/facebook' %>
@@ -23,15 +23,19 @@
 <%= calendar @date do |date| %>
   <%= date.day %>
   <% if @shifts_by_date[date] %>
-    <ul>
+    <div class="container-fluid">
       <% @shifts_by_date[date].each do |shift| %>
-        <li class="<%= shift.day_shift ? 'day' : 'night' %>">
-          <%= link_to image_tag(shift.user.image_url, alt: shift.user.name), shift_path(shift) %>
-        </li>
-        <% if shift.pending %>
-          <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Pending"></i>
-        <% end %>
+        <div class="row <%= shift.day_shift ? 'day' : 'night' %>">
+          <div class="col-md-4 pull-md-right m-t-3 text-md-right">
+            <%= link_to image_tag(shift.user.image_url, class:"avatar-image small-img", data: {toggle: "tooltip", placement: "bottom"}, title: shift.user.name , alt: shift.user.name), shift_path(shift) %>
+          </div>
+          <div>
+            <% if shift.pending %>
+                <i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="Pending"></i>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-    </ul>
+    </div>
   <% end%>
 <% end %>

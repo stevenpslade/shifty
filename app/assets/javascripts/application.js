@@ -36,8 +36,8 @@ $(function() {
   });
 
   //using jquery to add css to calendar if shift is night or day
-  $('li.night').closest('td').addClass("night-shift");
-  $('li.day').closest('td').addClass("day-shift");
+  $('.night').closest('td').addClass("night-shift");
+  $('.day').closest('td').addClass("day-shift");
 
   $('[data-toggle="tooltip"]').tooltip();
 

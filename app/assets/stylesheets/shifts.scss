@@ -5,6 +5,11 @@
 $day-color: #F5D76E;
 $night-color: #BE90D4;
 
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
 .calendar {
   border-collapse: collapse;
   width: 100%;
@@ -26,9 +31,13 @@ $night-color: #BE90D4;
   td {
     background: #FFF;
     color: #777;
-    height: 80px;
+    height: 7rem;
     vertical-align: top;
     font-size: 16px;
+
+      .fa-question-circle {
+        font-size: 2rem;
+      }
   }
 
   .notmonth, .notmonth a { color: #CCC; }
@@ -52,4 +61,14 @@ $night-color: #BE90D4;
 ul {
   font-size: 11px;
   padding-left: 20px;
+}
+
+/* for user image site wide*/
+.avatar-image {
+  border-radius: 50%;
+}
+
+/* display user image smaller on cal*/
+.small-img {
+  @include size(2em, 2em);
 }
