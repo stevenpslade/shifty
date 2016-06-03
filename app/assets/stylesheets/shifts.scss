@@ -17,6 +17,15 @@ $primary-color: #E00;
     color: $primary-color;
 }
 
+@mixin main-font-light {
+    font-family: Quicksand;
+    font-weight: 300;
+    color: $primary-color;
+}
+
+a {
+  text-decoration: none!important;
+}
 
 .navbar {
   border: .2rem solid $primary-color;
@@ -42,6 +51,16 @@ $primary-color: #E00;
     }
   }
 
+  .cal-controls {
+    text-align: center;
+    margin-top: .5rem;
+    @include main-font-light;
+
+      i {
+        color: $primary-color;
+      }
+  }
+
 }
 
 .calendar {
@@ -52,19 +71,19 @@ $primary-color: #E00;
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
     font-size: 10px;
     padding: 6px;
-    border: 1px solid #999;
+    border: 1px solid $primary-color;
   }
 
   th {
-    background: #DDD;
-    color: #666;
+    color: $primary-color;
+    font-size: 1rem;
     text-align: center;
     width: 14.2857142857143%;
   }
 
   td {
     background: #FFF;
-    color: #777;
+    color: $primary-color;
     height: 7rem;
     vertical-align: top;
     font-size: 16px;
@@ -76,8 +95,8 @@ $primary-color: #E00;
 
   .notmonth, .notmonth a { color: #CCC; }
   .today { background-color: #D7F2FF; }
-  .day-shift { background-color: $day-color }
-  .night-shift { background-color: fade_out($night-color, 0.25) }
+  .day-shift { background-color: $day-color; font-weight: 900; }
+  .night-shift { background-color: fade_out($night-color, 0.25); font-weight: 900; }
 }
 
 #month {
