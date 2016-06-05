@@ -38,6 +38,14 @@ gem 'jquery-turbolinks'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem "rspec-rails"
+
+  gem 'capybara'
+
+  gem 'bootstrap', '~> 4.0.0.alpha3'
+
+  gem 'font-awesome-rails'
 end
 
 group :development do
@@ -46,10 +54,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-  gem 'bootstrap', '~> 4.0.0.alpha3'
-
-  gem 'font-awesome-rails'
 
   gem 'omniauth-facebook'
 
@@ -60,5 +64,3 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
-
-gem "rspec-rails", :group => [:development, :test]
